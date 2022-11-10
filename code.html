@@ -26,3 +26,35 @@
         
     </p>
 </div>
+
+
+
+
+<div x-data="setup()">
+    <ul class="flex items-center overflow-x-auto overflow-y-hidden border-b border-gray-200" role="tablist">
+      <template x-for="(tab, index) in tabs" :key="index">
+        <li class="cursor-pointer py-2 px-4 text-gray-500 border-b transition-colors duration-300 rounded-tl-md rounded-tr-md" :class="activeTab===index ? 'text-blue-700 border-b-blue-700 bg-blue-400/10' : ''" @click="activeTab = index" x-text="tab"></li>
+      </template>
+    </ul>
+
+    <div class="w-full bg-white h-auto text-center mx-auto border border-t-0">
+      <div x-show="activeTab===0">
+        
+      </div>
+      <div x-show="activeTab===1">
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function setup() {
+      return {
+        activeTab: 0,
+        tabs: [
+            "Display",
+            "Code"
+        ]
+      };
+    };
+  </script>
